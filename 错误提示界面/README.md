@@ -8,10 +8,12 @@
 1. background
 2. head
 3. music-note
+
 各个模块如图所示
+
 ![CSS_5](http://oxuk2wfkl.bkt.clouddn.com/css_5.jpg)
 #### 动态
-1. 头部的摇动
+1. 头部摇动
 2. 眼睛眨动和眉毛上挑
-3. 音符的跳动
+3. 音符跳动
 ### 功能样式
