@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>form_design</title>
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+        <link type="text/css" href="form1.css" rel="stylesheet" />
+        
+<form class="form1" action="" method="post">
+    <h3>设计表单</h3>
+    <fieldset>
+        <legend>
+            <span>第一部分</span>
+        </legend>
+        <section>
+            <!--单行文本输入控件-->
+            <p class="note">填写的字段</p>
+            <label for="user_name">用户名</label>
+            <!--for属性把标注和控件关联起来，它的值必须与控件ID相同-->
+            <input type="text" id="user_name" name="user_name" />
+            <p>填写用户名</p>
+        </section>
+        <section>
+            <!--密码控件-->
+            <label for="password">密码</label>
+            <input type="password" id="password" name="password" maxlength="20" />
+            <p>密码不得少于8位</p>
+        </section>
+        <section>
+            <!--多行文本输入控件-->
+            <label for="description">描述的内容</label>
+            <textarea id="description" name="description" placeholder="在此输入"></textarea>
+        </section>
+        <!--HTML5日期控件-->
+        <section>
+            <label for="description">日期</label>
+            <input type="date" id="special_date" name="event_date" />
+        </section>
+    </fieldset>
+    <fieldset>
+        <legend>
+            <span>第二部分</span>
+        </legend>
+    <!--复选框-->
+    <section>
+        <h4>选择任意数字</h4>
+        <section>
+            <input type="checkbox" id="check1" name="checkset" value="1" tabindex="4" />
+            <label for="check1">1</label>
+        </section>
+        <section>
+            <input type="checkbox" checked="checked" id="check2" name="checkset" value="2" />
+            <label for="check2">2</label>
+        </section>
+        <section>
+            <input type="checkbox" id="check3" name="checkset" value="3" />
+            <label for="check3">3</label>
+        </section>
+        <p>至少选择一个</p>
+    </section>
+    <!--开始单选菜单 -->
+    <section>
+        <h4>单选</h4>
+        <section>
+            <input checked="checked" type="radio" id="radio1" name="radioset" value="Choice_1" />
+            <label for="radiio1">1</label>
+        </section>
+        <section>
+            <input type="radio" id="radio2" name="radioset" value="Choice_2" />
+            <label for="radio2">2</label>
+        </section>
+        <section>
+            <input type="radio" id="radio3" name="radioset" value="Choice_3" />
+            <label for="radio3">3</label>
+        </section>
+    </section>
+    <!--下拉菜单-->
+    <section>
+        <label for="select_choice">请选择</label>
+        <select id="select_choice" name="select_choice">
+            <option value="0">None</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </section>
+    </fieldset>
+    <!--开始提交按钮-->
+    <section>
+        <input type="submit" value="提交表单" />
+    </section>
+</form>
+    </head>
+</html>

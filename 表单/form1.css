@@ -1,0 +1,95 @@
+form.form1 {                       /* 从整体布局开始，先设定form和两个fieldset元素的样式 */
+    width: 14em;
+    margin: 20px auto;
+    border: 1px solid #183552;
+    padding: .5em .5em .15em;                  
+}
+.form1 h3 {
+    margin: 0;
+    padding: 0 0 .2em .2em;
+    font-weight: 600;
+    color: #4b0082;
+} 
+.form1 fieldset {
+    margin: 0;
+    padding: 0 0 .2em 0;
+    width: 100%;
+    border: 0;
+}
+.form1 legend {          /* legend元素的位置不同寻常，把文本包含在一个块级span中，转而为span设定样式 */
+    width: 100%;
+    padding: .3em 0;
+    background:rgb(216, 98, 216)
+}
+.form1 legend span {
+    display: block;
+    font-size: 1em;
+    line-height: 1.1em;
+    padding: 0 0 0 .4em;
+    font-weight: 700;
+    color: #fff;
+}
+.form1 section {    /* 强制section包含表单标注及内容 */
+    overflow: hidden;      
+    padding: .2em 0 .4em 0;
+    border-bottom: 8px soild #c21859;
+}
+.form1 section :last-child {
+    border-bottom: 0px;
+}
+.form1 section label,
+.form1 section h4 {
+    display: block;
+    clear: both;
+    margin:.3em .3em 0 0; /*右外边距确保标注文本在碰到input之前会换行 */
+    padding-bottom:.1em;
+    font-size:.8em;
+    font-family: 'Arial';
+    font-weight: 400;
+    line-height: 1.1;
+}
+.form1 section label span,
+.form1 section h4 span {
+     font-size: .75em;
+     vertical-align: text-top;
+     color: #f00;
+}
+.form1 section p.note {
+    font-size:.7em;
+    color: #f00;
+    margin: 0;
+    padding: 0 0 .3em 0;
+}
+.form1 section input,
+.form1 section textarea,
+.form1 section select {
+    margin: .2em .4em .2em 0;
+    padding: .2em .4em;
+    color: #000;
+    box-shadow: 1px 1px 3px #ccc;
+    font-size: .8em;
+    font-family: inherit;
+    outline: none;
+}
+/* 设定文本字段的样式 */
+.form1 section input，
+.form1 section textarea {
+    width: 12em;
+    border: 1px soild #bbb7ae;
+    border-radius: 3px;
+}
+.form1 section textarea {
+    height: 5em;
+    margin-top: .3em;
+    line-height: 1.1;
+}
+.form1 section p {     /*控件使用 */
+    margin: 3em .75em 0;
+    clear: both;
+    font-size: .7em;
+    line-height: 1.1;
+    color: #000;
+} 
+.form1 section p.error { /*添加error类 */
+    color: #f00;
+}
