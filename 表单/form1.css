@@ -1,26 +1,32 @@
-form.form1 {                       /* 从整体布局开始，先设定form和两个fieldset元素的样式 */
+form.form1 {
+    /* 从整体布局开始，先设定form和两个fieldset元素的样式 */
     width: 14em;
     margin: 20px auto;
     border: 1px solid #183552;
-    padding: .5em .5em .15em;                  
+    padding: .5em .5em .15em;
 }
+
 .form1 h3 {
     margin: 0;
     padding: 0 0 .2em .2em;
     font-weight: 600;
     color: #4b0082;
-} 
+}
+
 .form1 fieldset {
     margin: 0;
     padding: 0 0 .2em 0;
     width: 100%;
     border: 0;
 }
-.form1 legend {          /* legend元素的位置不同寻常，把文本包含在一个块级span中，转而为span设定样式 */
+
+.form1 legend {
+    /* legend元素的位置不同寻常，把文本包含在一个块级span中，转而为span设定样式 */
     width: 100%;
     padding: .3em 0;
-    background:rgb(216, 98, 216)
+    background: rgb(216, 98, 216)
 }
+
 .form1 legend span {
     display: block;
     font-size: 1em;
@@ -29,37 +35,45 @@ form.form1 {                       /* 从整体布局开始，先设定form和�
     font-weight: 700;
     color: #fff;
 }
-.form1 section {    /* 强制section包含表单标注及内容 */
-    overflow: hidden;      
+
+.form1 section {
+    /* 强制section包含表单标注及内容 */
+    overflow: hidden;
     padding: .2em 0 .4em 0;
     border-bottom: 8px soild #c21859;
 }
+
 .form1 section :last-child {
     border-bottom: 0px;
 }
+
 .form1 section label,
 .form1 section h4 {
     display: block;
     clear: both;
-    margin:.3em .3em 0 0; /*右外边距确保标注文本在碰到input之前会换行 */
-    padding-bottom:.1em;
-    font-size:.8em;
+    margin: .3em .3em 0 0;
+    /*右外边距确保标注文本在碰到input之前会换行 */
+    padding-bottom: .1em;
+    font-size: .8em;
     font-family: 'Arial';
     font-weight: 400;
     line-height: 1.1;
 }
+
 .form1 section label span,
 .form1 section h4 span {
-     font-size: .75em;
-     vertical-align: text-top;
-     color: #f00;
+    font-size: .75em;
+    vertical-align: text-top;
+    color: #f00;
 }
+
 .form1 section p.note {
-    font-size:.7em;
+    font-size: .7em;
     color: #f00;
     margin: 0;
     padding: 0 0 .3em 0;
 }
+
 .form1 section input,
 .form1 section textarea,
 .form1 section select {
@@ -71,25 +85,134 @@ form.form1 {                       /* 从整体布局开始，先设定form和�
     font-family: inherit;
     outline: none;
 }
+
+
 /* 设定文本字段的样式 */
-.form1 section input，
-.form1 section textarea {
+
+.form1 section input， .form1 section textarea {
     width: 12em;
     border: 1px soild #bbb7ae;
     border-radius: 3px;
 }
+
 .form1 section textarea {
     height: 5em;
     margin-top: .3em;
     line-height: 1.1;
 }
-.form1 section p {     /*控件使用 */
-    margin: 3em .75em 0;
+
+.form1 section p {
+    /*控件使用 */
+    margin: .3em .75em 0;
     clear: both;
     font-size: .7em;
     line-height: 1.1;
     color: #000;
-} 
-.form1 section p.error { /*添加error类 */
+}
+
+.form1 section p.error {
+    /*添加error类 */
     color: #f00;
+}
+
+.form1 section section {
+    /* 控件内包装 */
+    overflow: hidden;
+    margin: .2em 0 .3em .4em;
+    padding: 0 0 .1em 0;
+    border-bottom: none;
+}
+
+.form1 section section input {
+    float: left;
+    clear: both;
+    width: auto;
+    /* 重设继承的宽度 */
+    margin: .1em 0 0 .3em;
+    /* 顶部与标注对齐，左侧防止input溢出 */
+}
+
+.form1 section section label {
+    float: left;
+    clear: none;
+    /* 重设继承的值 */
+    width: 15em;
+    margin: .15em 0 0 .6em;
+    font-weight: normal;
+    font-size: .7em;
+    line-height: 1.2;
+}
+
+.form1 section select {
+    margin-left: .4em;
+    font-size: .85em;
+}
+
+.form1 section input[type="submit"] {
+    width: auto;
+    margin: .4em .3em 0 0;
+    font-size: 1em;
+    font-weight: 800;
+    color: #fff;
+    background-color: #bbb7ae;
+    cursor: pointer;
+}
+
+.form1>section:last-child {
+    text-align: center;
+}
+
+
+/* “标注在左”版本 */
+
+form.form1.label_left {
+    width: 22em;
+    /*加宽表单，让标注和控件在一行排列 */
+}
+
+form.form1.label_left label,
+form.form1.label_left h4 {
+    float: left;
+    /* 把标注浮动到控件左侧 */
+    width: 8em;
+}
+
+form.form1.label_left p {
+    margin: 0 0 0 9.35em;
+    /*缩进控件说明，以便它位于控件的正下方 */
+    padding: .3em 0 0 0;
+    clear: both;
+    /* 确保说明不会跟着浮动的标注和控件走 */
+}
+
+form.form1.label_left p.note {
+    margin: 0 0 .2em 0;
+}
+
+form.form1.label_left section section {
+    width: 10em;
+    margin-left: 6.5em;
+    padding-top: 0;
+}
+
+form.form1.label_left section section input {
+    width: 1.25em;
+    margin-left: 0;
+}
+
+.form1.label_left section input,
+.form1.label_left section textarea,
+.form1.label_left section select {
+    float: left;
+    /*让控件成为第二栏 */
+    width: 12em;
+}
+
+.form1.label_left section select {
+    margin-left: .2em;
+    /*缩进选项列表 */
+}
+
+.form1.label_left>section input[type=submit] {
+    float: none;
 }
