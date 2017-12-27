@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 550px;
+    height: 300px;
+    float: right;
+    margin-right: 400px;
+    margin-top: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.list {
+    width: calc( 550px * 7);
+    height: 300px;
+    position: absolute;
+    z-index: 1;
+}
+
+.list>img {
+    float: left;
+}
+
+.buttons {
+    width: 100px;
+    height: 10px;
+    position: absolute;
+    bottom: 10px;
+    left: calc( 50% - 50px);
+    z-index: 2;
+}
+
+.buttons span {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.buttons .on {
+    background-color: white;
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    display: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 35px;
+    color: rgba(255, 255, 255, 0.3);
+    text-align: center;
+    position: absolute;
+    z-index: 3;
+}
+
+#prev {
+    left: 20px;
+    top: calc(150px - 50px);
+}
+
+#next {
+    right: 20px;
+    top: calc(150px - 50px);
+}
+
+.container:hover .arrow {
+    display: block;
+}
+
+.arrow:hover {
+    background-color: rgba(0,0,0,0.7);
+}
+
+a {
+    text-decoration: none;
+}
