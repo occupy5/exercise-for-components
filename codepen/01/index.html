@@ -1,0 +1,128 @@
+<!-- mac os菜单按钮练习 -->
+<div class="container">
+  <!-- 放大，缩小，和关闭的三个按钮 -->
+  <div class="btn btn1"></div>
+  <div class="btn btn2"></div>
+  <div class="btn btn3"></div>
+</div>
+
+<style>
+  .container {
+    /* 实现水平垂直居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* 横向排列按钮 */
+    display: flex;
+  }
+  .btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 20px;
+  }
+  /* 缩小菜单按钮 */
+  /* 需求：鼠标移动到按钮时，显示横杠。离开后，消失。并有相应的动画效果。 */
+  .btn1 {
+    background: #fac536;
+    position: relative;
+    overflow: hidden;
+  }
+  /* 使用伪元素 */
+  .btn1::before {
+    content: '';
+    position: absolute;
+    /* 中间横杠的长宽 */
+    width: 50%;
+    height: 10%;
+    /* 配合hover的top属性，实现『上升下降』的动画 */
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    /* 移动到按钮时，再显示横杠 */
+    opacity: 0;
+    transition: 300ms;
+  }
+  .btn1:hover::before {
+    opacity: 1;
+    top: 50%
+  }
+  /* 放大菜单按钮 */
+  /* 需求：与上面一致，显示内容为两个堆叠的直角三角形 */
+  /* 思路：首先使用伪元素实现一个正方形，然后再将正方形切割为两个直角三角形 */
+  .btn2 {
+    background: #39ea49;
+    position: relative;
+    overflow: hidden;
+  }
+  /* 实现一个正方形 */
+  .btn2::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 45%;
+    height: 45%;
+    opacity: 0;
+    background: #fff;
+    transition: 300ms;
+  }
+  /* 实现一个竖杠，向左旋转45°，切割正方形 */
+  .btn2::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    width: 15%;
+    height: 80%;
+    opacity: 0;
+    background: #39ea49;
+    transition: 300ms;
+  }
+  .btn2:hover::before, .btn2:hover::after {
+    opacity: 1;
+    top: 50%;
+  }
+  /* 关闭菜单按钮 */
+  /* 需求：显示内容为『x』 */
+  /* 思路：使用伪元素实现两条竖杠，分别向左右旋转 */
+  .btn3 {
+    background: #f25056;
+    position: relative;
+    overflow: hidden;
+  }
+  /* 向右旋转45° */
+  .btn3::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+    width: 15%;
+    height: 50%;
+    opacity: 0;
+    background: #fff;
+    transition: 300ms;
+  }
+  /* 向左旋转45° */
+  .btn3::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+    width: 15%;
+    height: 50%;
+    opacity: 0;
+    background: #fff;
+    transition: 300ms;
+  }
+  .btn3:hover::before, .btn3:hover::after {
+    top: 50%;
+    opacity: 1;
+  }
+</style>
