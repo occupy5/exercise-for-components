@@ -1,5 +1,6 @@
 <!-- 纯css实现鲸鱼动画 -->
 <div class="water">
+  <!-- 鲸鱼 -->
   <div class="fish">
     <div class="face">
       <!-- 左鳍 -->
@@ -11,6 +12,14 @@
       <!-- 右鳍 -->
       <div class="right-fin"></div>
     </div>
+  </div>
+  <!-- 水中气泡 -->
+  <div class="bubbles">
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
   </div>
 </div>
 
@@ -29,6 +38,8 @@
     background: -webkit-linear-gradient(to left, #2C5364, #203A43, #0F2027);
     /* 现代浏览器 */
     background: linear-gradient(to left, #2C5364, #203A43, #0F2027);
+    /* note: animation会影响元素的z-index属性 */
+    /* z-index: -2; */
   }
   .fish {
     position: absolute;
@@ -37,6 +48,12 @@
     width: 80%;
     height: 100%;
     /* 动画 */
+    animation-name: fish;
+    -webkit-animation-name: fish;
+    animation-duration: 5s;
+    -webkit-animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
   }
   .face {
     position: absolute;
@@ -48,6 +65,12 @@
     background: #dc9997;
     background: linear-gradient(#dc9997 60%, #927dad);
     /* 动画 */
+    animation-name: face;
+    -webkit-animation-name: face;
+    animation-duration: 5s;
+    -webkit-animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
   }
   .mouth {
     position: absolute;
@@ -99,5 +122,181 @@
   .nose::after {
     left: 100%;
     transform: rotate(-8deg);
+  }
+  /* 实现鱼鳍 */
+  .right-fin, .left-fin {
+    position: absolute;
+    width: 4em;
+    height: 1.5em;
+    z-index: -1;
+    background: #ae88a5;
+    border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  }
+  .left-fin {
+    top: 60%;
+    left: -2.5em;
+    transform: rotate(10deg);
+    animation-name: fin-left;
+    -webkit-animation-name: fin-left;
+    animation-duration: 5s;	
+    -webkit-animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+  .right-fin {
+    top: 60%;
+    right: -2.5em;
+    transform: rotate(-10deg);
+    animation-name: fin-right;
+    -webkit-animation-name: fin-right;
+    animation-duration: 5s;	
+    -webkit-animation-duration: 5s;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+  /* 鲸鱼浮动动画 */
+  @keyframes fish {
+    0% {
+      transform: translateY(0%);
+    }
+    50% {
+      transform: translateY(-5%);
+    }
+    100% {
+      transform: translateY(0%)
+    }
+  }
+  @-webkit-keyframes fish {
+    0% {
+      -webkit-transform: translateY(0%);
+    }
+    50% {
+      -webkit-transform: translateY(-5%);
+    }
+    100% {
+      -webkit-transform: translateY(0%)
+    }
+  }
+  /* 脸部动画 */
+  @keyframes face {
+    0% {
+      border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    }
+    50% {
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+    100% {
+      border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    }
+  }
+  @-webkit-keyframes face {
+    0% {
+      -webkit-border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    }
+    50% {
+      -webkit-border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    }
+    100% {
+      -webkit-border-radius: 50% 50% 50% 50% / 80% 80% 20% 20%;
+    }
+  }
+  /* 鱼鳍动画 */
+  @keyframes fin-left {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(-20deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  @-webkit-keyframes fin-left {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(-20deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+    }
+  }
+  @keyframes fin-right {
+    0% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(20deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  @-webkit-keyframes fin-right {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    50% {
+      -webkit-transform: rotate(20deg);
+    }
+    100% {
+      -webkit-transform: rotate(0deg);
+    }
+  }
+  /* 水中气泡动画 */
+  .bubble {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+  }
+  
+  .x1 {
+    transform: scale(.9);
+    opacity: .2;
+    animation: moveclouds 15s linear infinite, sliderways 4s ease-in-out infinite alternate;
+  }
+  .x2 {
+    transform: scale(.6);
+    opacity: .5;
+    left: 200px;
+    animation: moveclouds 25s linear infinite, sliderways 5s ease-in-out infinite alternate;
+  }
+  .x3 {
+    transform: scale(.3);
+    opacity: .3;
+    left: 350px;
+    animation: moveclouds 20s linear infinite, sliderways 4s ease-in-out infinite alternate;
+  }
+  .x4 {
+    transform: scale(.75);
+    opacity: .35;
+    left: 470px;
+    animation: moveclouds 18s linear infinite, sliderways 2s ease-in-out infinite alternate;
+  }
+  .x5 {
+    transform: scale(.8);
+    opacity: .3;
+    left: 150px;
+    animation: moveclouds 7s linear infinite, sliderways 1s ease-in-out infinite alternate;
+  }
+  @keyframes moveclouds {
+    0% {
+      top: 500px;
+    }
+    100% {
+      top: -500px;
+    }
+  }
+  @keyframes sliderways {
+    0% {
+      margin-left: 0px;
+    }
+    100% {
+      margin-left: 50px;
+    }
   }
 </style>
